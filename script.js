@@ -12,10 +12,13 @@ function findDate() {
   const targetDate = new Date(startDate);
   targetDate.setDate(startDate.getDate() + dayNumber - 1); 
 
-  const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" };
+  const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = targetDate.toLocaleDateString("en-US", options);
 
-  result.textContent = `Today is ${formattedDate} in Blue Prince.`;
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const currentDayOfTheWeek = daysOfWeek[(targetDate.getDay() - 1) % 7];
+
+  result.textContent = `Today is ${currentDayOfTheWeek}, ${formattedDate} in Blue Prince.`;
 }
 
 function resetForm() {
