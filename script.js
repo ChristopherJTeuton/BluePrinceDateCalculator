@@ -12,7 +12,7 @@ function findDate() {
   const targetDate = new Date(startDate);
   targetDate.setDate(startDate.getDate() + dayNumber - 1); 
 
-  const options = { year: "numeric", month: "long", day: "numeric" };
+  const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" };
   const formattedDate = targetDate.toLocaleDateString("en-US", options);
 
   result.textContent = `Today is ${formattedDate} in Blue Prince.`;
